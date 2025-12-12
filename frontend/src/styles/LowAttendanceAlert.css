@@ -1,0 +1,251 @@
+/* ================================
+   LIGHT THEME – LOW ATTENDANCE MODAL
+================================ */
+
+.low-attendance-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* MODAL BOX */
+.low-attendance-modal {
+  background: #ffffff;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 620px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.25);
+}
+
+/* HEADER */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem;
+  background: #e9f0ff;
+  color: #333;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* Close Button */
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.7rem;
+  cursor: pointer;
+  color: #333;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+.close-btn:hover {
+  background: #d0d9ff;
+}
+
+/* BODY */
+.modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Threshold Input */
+.threshold-control {
+  margin-bottom: 1.4rem;
+}
+
+.threshold-control label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.threshold-control input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.threshold-control input:focus {
+  border-color: #4a75ff;
+  box-shadow: 0 0 0 3px rgba(74, 117, 255, 0.2);
+  outline: none;
+}
+
+/* STUDENT LIST BOX */
+.students-list {
+  margin-bottom: 1.4rem;
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* SELECT ALL HEADER */
+.list-header {
+  padding: 1rem;
+  background: #f5f6fa;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 700;
+  color: #333;
+  display: flex;
+  justify-content: space-between; /* TEXT LEFT + CHECKBOX RIGHT */
+  align-items: center;
+}
+
+.list-header span {
+  font-size: 1rem;
+}
+
+.list-header input[type="checkbox"] {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+/* STUDENT ITEM */
+.student-item {
+  padding: 1rem;
+  border-bottom: 1px solid #f1f1f1;
+  display: flex;
+  justify-content: space-between; /* TEXT LEFT | CHECKBOX RIGHT */
+  align-items: center;
+  transition: 0.2s;
+}
+.student-item:hover {
+  background: #f8faff;
+}
+
+.student-item:last-child {
+  border-bottom: none;
+}
+
+/* STUDENT INFO */
+.student-info {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.student-info strong {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.roll {
+  color: #777;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+.student-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* ATTENDANCE STATUS */
+.attendance-status {
+  font-size: 0.9rem;
+  color: #333;
+}
+.percentage {
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+/* EMPTY STATE */
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  background: #fafafa;
+  border-radius: 0.5rem;
+}
+
+/* FOOTER BUTTONS */
+.modal-actions {
+  background: #fafafa;
+  padding: 1.4rem;
+  border-top: 1px solid #e0e0e0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.modal-actions .btn {
+  padding: 0.9rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+  transition: 0.3s ease;
+}
+
+/* Primary Button */
+.modal-actions .btn-primary {
+  background: #4a75ff;
+  color: white;
+}
+.modal-actions .btn-primary:hover:not(:disabled) {
+  background: #345dff;
+  box-shadow: 0 4px 12px rgba(52, 93, 255, 0.4);
+}
+
+/* Disabled */
+.modal-actions .btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Secondary */
+.modal-actions .btn-secondary {
+  background: #eeeeee;
+  color: #333;
+}
+.modal-actions .btn-secondary:hover {
+  background: #e2e2e2;
+}
+
+/* Danger */
+.modal-actions .btn-danger {
+  background: #ff6b6b;
+  color: white;
+}
+.modal-actions .btn-danger:hover {
+  background: #ff5252;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .modal-actions {
+    grid-template-columns: 1fr;
+  }
+  .low-attendance-modal {
+    max-height: 92vh;
+  }
+}

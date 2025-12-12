@@ -1,0 +1,264 @@
+.attendance-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #0b0b0b;
+  color: #fff;
+}
+
+/* ===========================
+   HEADER (FIXED + RESPONSIVE)
+   =========================== */
+.attendance-header {
+  position: relative;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0;
+}
+
+/* Back button (always on left) */
+.attendance-header button {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* Center block */
+.attendance-header > div {
+  text-align: center;
+  width: 100%;
+}
+
+.attendance-header div h1 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: white;
+}
+
+.attendance-header div p {
+  font-size: 1rem;
+  margin: 0;
+  color: #ccc;
+}
+
+/* MOBILE HEADER FIX */
+@media (max-width: 480px) {
+  .attendance-header {
+    padding-left: 3.2rem; /* space so title stays centered */
+  }
+
+  .attendance-header button {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===========================
+   CONTROLS BOX
+   =========================== */
+.attendance-controls {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+/* DATE PICKER */
+.date-picker {
+  margin-bottom: 1.5rem;
+}
+
+.date-picker label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #eaeaea;
+}
+
+.date-picker input {
+  padding: 0.4rem 0.8rem;
+  border: 2px solid #333;
+  background: #111;
+  color: #fff;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  height: 38px;
+  transition: all 0.3s ease;
+}
+
+.date-picker input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+  padding: 2px;
+  margin-right: 4px;
+}
+
+.date-picker input:focus {
+  outline: none;
+  border-color: #00c3ff;
+  box-shadow: 0 0 0 3px rgba(0, 195, 255, 0.2);
+}
+
+/* ===========================
+   STATS BOX
+   =========================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.stat {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-weight: 700;
+  color: white;
+}
+
+.stat.present { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+.stat.absent { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+.stat.late   { background: linear-gradient(135deg, #f39c12, #d68910); }
+.stat.leave  { background: linear-gradient(135deg, #3498db, #2e86c1); }
+
+.stat-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+/* ===========================
+   TABLE
+   =========================== */
+.attendance-table-container {
+  background: #1a1a1a;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+}
+
+.attendance-table {
+  width: 100%;
+  color: #fff;
+  border-collapse: collapse;
+}
+
+.attendance-table thead {
+  background: linear-gradient(135deg, #00c3ff, #0077ff);
+  color: white;
+}
+
+.attendance-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: bold;
+}
+
+.attendance-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #333;
+  vertical-align: middle;
+  font-weight: bold;
+  color: #ddd;
+}
+
+.attendance-table tbody tr:hover {
+  background-color: #222;
+}
+
+/* ===========================
+   STATUS BUTTONS
+   =========================== */
+.status-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.status-btn {
+  padding: 0.4rem 0.8rem;
+  border: 2px solid #444;
+  color: #ccc;
+  background: #111;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.status-btn:hover {
+  border-color: #00c3ff;
+  color: #00c3ff;
+}
+
+.status-btn.active {
+  background: #00c3ff;
+  border-color: #00c3ff;
+  color: black;
+  font-weight: bold;
+}
+
+/* ===========================
+   ACTION BUTTONS
+   =========================== */
+.attendance-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.attendance-actions .btn {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* ===========================
+   MOBILE RESPONSIVE
+   =========================== */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .status-buttons {
+    flex-direction: column;
+  }
+
+  .status-btn {
+    width: 100%;
+  }
+
+  .attendance-actions {
+    flex-direction: column;
+  }
+
+  .attendance-actions .btn {
+    width: 100%;
+  }
+
+  .attendance-table {
+    font-size: 0.9rem;
+  }
+
+  .attendance-table th,
+  .attendance-table td {
+    padding: 0.8rem 0.5rem;
+  }
+}

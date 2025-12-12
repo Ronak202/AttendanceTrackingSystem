@@ -1,0 +1,257 @@
+:root {
+  --bg-dark: #0b0b0b;
+  --text-light: #eaeaea;
+  --primary: #00c3ff;
+  --accent: #ff004c;
+  --nav-height: 70px;
+
+  /* Accessibility Colors */
+  --focus-outline: #f7ff00; /* high visibility yellow */
+  --high-contrast-bg: #000;
+  --high-contrast-text: #fff;
+}
+
+/* -------------------- GLOBAL -------------------- */
+body {
+  background: var(--bg-dark) !important;
+  color: var(--text-light);
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-size: 16px; /* readable base size */
+}
+
+/* 🔥 ACCESSIBILITY: Focus Outline for All Interactive Elements */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid var(--focus-outline);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* 🔥 Reduced Motion (for accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* -------------------- NAVBAR --------------------- */
+.navbar {
+  width:100%;
+  height: var(--nav-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0%;
+  position: fixed;
+  top: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar.scrolled {
+  background: rgba(0,0,0,0.95);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.4);
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.logo span {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* -------------------- NAV LINKS -------------------- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 🔥 ACCESSIBILITY: Larger clickable target */
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 1.05rem; /* slightly larger */
+  padding: 10px 14px; /* bigger touch target */
+  border-radius: 6px;
+  transition: 0.25s;
+}
+
+/* HOVER BG COLOR */
+.nav-links a:hover,
+.nav-links a:focus {
+  background: #bef701;   
+  color: black;
+}
+
+/* LOGIN / REGISTER BUTTONS */
+.nav-btn {
+  padding: 10px 22px;
+  border-radius: 10px;
+  background: #07a2cd;
+  border: 1px solid #333;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nav-btn:hover,
+.nav-btn:focus {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.signup {
+  background: var(--primary);
+  color: black !important;
+  font-weight: 700;
+}
+
+/* -------------------- HERO SECTION -------------------- */
+.hero {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 0 20px;
+  margin-top: var(--nav-height);
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+/* 🔥 More readable text for accessibility */
+@media (max-width: 850px) {
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+}
+
+.grad {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 780px;
+  margin: 12px auto 32px;
+  color: #ccc;
+}
+
+/* Buttons */
+.hero-buttons a {
+  background: var(--primary);
+  padding: 16px 38px;
+  margin: 10px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hero-buttons a:hover,
+.hero-buttons a:focus {
+  background: var(--accent);
+  transform: translateY(-3px);
+  color: #fff;
+}
+
+/* -------------------- FOOTER -------------------- */
+footer {
+  padding: 25px 0;
+  background: #0a0a0a;
+  text-align: center;
+  color: #aaa;
+  margin-top: 40px;
+  font-size: 0.95rem;
+}
+
+.footer-contact span {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.footer-links a {
+  color: #ff8080;
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-links a:focus {
+  color: var(--accent);
+}
+
+/* -------------------- MOBILE VIEW -------------------- */
+@media (max-width: 850px) {
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: var(--nav-height);
+    right: -260px;
+    width: 260px;
+    height: 100vh;
+    background: #000;
+    flex-direction: column;
+    padding-top: 40px;
+    gap: 25px;
+    transition: 0.3s ease;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-btn {
+    width: 70%;
+    text-align: center;
+  }
+}
+
+/* -------------------- HIGH CONTRAST MODE -------------------- */
+.high-contrast {
+  background: var(--high-contrast-bg) !important;
+  color: var(--high-contrast-text) !important;
+}
+
+.high-contrast a,
+.high-contrast button {
+  color: var(--high-contrast-text) !important;
+}

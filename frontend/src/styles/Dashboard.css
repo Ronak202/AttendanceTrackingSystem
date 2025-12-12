@@ -1,0 +1,243 @@
+:root {
+  --bg-dark: #0d0d12;
+  --card-dark: #16161d;
+  --card-hover: #1d1d27;
+  --primary: #00c3ff;
+  --primary-dark: #009ac7;
+  --text-light: #e8e8e8;
+  --text-muted: #a0a0a0;
+  --border-light: rgba(255, 255, 255, 0.08);
+  --glass: rgba(255, 255, 255, 0.06);
+}
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Container */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* Header */
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: rgb(255, 0, 0);
+}
+
+.dashboard-header h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+}
+
+.dashboard-header p {
+  font-size: 1.05rem;
+  opacity: 0.85;
+  color: var(--text-muted);
+}
+
+/* Add Class Button */
+.dashboard-actions .btn-large {
+  width: 100%;
+  max-width: 350px;
+  padding: 1.15rem;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  border-radius: 0.9rem;
+  background: var(--primary);
+  color: #000;
+  border: none;
+  display: block;
+  transition: 0.25s ease;
+}
+
+.dashboard-actions .btn-large:active {
+  transform: scale(0.98);
+}
+
+/* Class Grid */
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Card */
+.class-card {
+  background: var(--card-dark);
+  border-radius: 2rem;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.class-card:hover {
+  background: var(--card-hover);
+  transform: translateY(-4px);
+}
+
+/* Card Header */
+.class-card-header {
+  background: linear-gradient(135deg, #0f6fd8 0%, #7a24c9 100%);
+  padding: 1.2rem;
+  color: white;
+  display: flex;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.class-card-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.class-code {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 0.25rem 0.7rem;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Card Body */
+.class-card-body {
+  padding: 1.3rem;
+  flex: 1;
+}
+
+.class-card-body p {
+  margin: 0.4rem 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.class-card-body strong {
+  color: var(--text-light);
+}
+
+/* Card Footer */
+.class-card-footer {
+  padding: 1rem 1.3rem;
+  background: var(--glass);
+  border-top: 1px solid var(--border-light);
+   border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.class-card-footer .btn {
+  width: 100%;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 0.7rem;
+  background: var(--primary);
+  font-weight: 600;
+  color: #000;
+  transition: 0.2s ease;
+}
+
+.class-card-footer .btn:active {
+  transform: scale(0.97);
+}
+
+.delete-class-btn {
+  background: #ff4d4d;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: auto;
+
+}
+
+.delete-class-btn:hover {
+  background: #ff1a1a;
+}
+
+/* Empty State */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  border: 1px solid var(--border-light);
+}
+
+/* ===========================
+       MOBILE STYLING
+=========================== */
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.9rem;
+  }
+
+  .dashboard-header p {
+    font-size: 0.95rem;
+  }
+
+  .classes-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .class-card-header {
+    padding: 1rem;
+  }
+
+  .class-card-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .class-card-body {
+    padding: 1rem;
+  }
+
+  .class-card-body p {
+    font-size: 0.9rem;
+  }
+
+  .dashboard-actions .btn-large {
+    padding: 1rem;
+    font-size: 1.05rem;
+  }
+}
+
+/* Small Phones (below 400px) */
+@media (max-width: 400px) {
+
+  .dashboard-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .dashboard-actions .btn-large {
+    max-width: 280px;
+    padding: 0.9rem;
+  }
+
+  .class-card-header h3 {
+    font-size: 1rem;
+  }
+
+  .class-card {
+    border-radius: 0.8rem;
+  }
+}
